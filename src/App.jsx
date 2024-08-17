@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 import Home from './templates/Home'
-
-function Login(){
-  return <p>Login</p>
-}
-
-function Interface1(){
-  return <p>Interface1</p>
-}
+import Login from './components/Login'
 
 function Teste(){
   return <p>Teste</p>
@@ -19,15 +13,29 @@ function Teste1(){
 }
 
 function App() {
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+  const adminData = { username:'admin', password:'admin' };
+
+  const handleLogin = (username, password)=>{
+    if(username == adminData.username && password == username.password){
+      setIsAuthenticated(true);
+    }else{
+      window.alert("Credenciais inválidas");
+    }
+  }
+
+  const handleLogout = ()=>{
+    setIsAuthenticated(false)
+  }
 
   return (
     <Router>
       <Routes>
         
-        <Route path="/" element={<Login />} />
-        <Route path="help" element={<Interface1 />} />
-        
-        <Route path="template" element={<Home />}>
+        <Route path="/" element={<Login onLogin={handleLogin} />} />        
+        <Route path="template" element={
+          isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
+        }>
           <Route path=""  element={<Teste />} />
           <Route path="1"  element={<Teste1 />} />
         </Route>
