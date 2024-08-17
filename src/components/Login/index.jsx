@@ -3,6 +3,7 @@ import { FaLock } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from 'react-router-dom';
+import imgLogin from '../../assets/login.png';
 
 // Componente responsável pela interface de Login e autenticação do sistema. 
 function Login({onLogin}){
@@ -17,6 +18,7 @@ function Login({onLogin}){
     })
   }
 
+  // Relizando a verificação de acesso:
   const handleSubmit = ()=>{
     const isAuthenticated = onLogin(userdata.username, userdata.password)
     if(isAuthenticated){
@@ -35,7 +37,11 @@ function Login({onLogin}){
         </div>
 
         <div className='w-full h-[250px] flex justify-center flex-col items-center'>
-          
+          <div className="w-[450px] h-[80px] flex flex-col justify-center">
+            <span className="text-[#1ED760] font-bold text-xl">Sign in</span>
+            <span className="text-[#1ED760] text-sm">Please enter your details</span>
+          </div>
+
           <div className='w-[450px] h-[40px] flex items-center gap-[15px]'>
             <span className='text-[#ffffff]'>Username:</span>
             <input 
@@ -72,7 +78,9 @@ function Login({onLogin}){
         </div>
 
       </div>
-      <div className="w-[50%] h-screen bg-[blue]"></div>
+      <div className="w-[50%] h-screen">
+        <img src={imgLogin} alt="login" className='h-screen' />
+      </div>
     </section>
   )
 }
