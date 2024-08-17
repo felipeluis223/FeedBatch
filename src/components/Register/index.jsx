@@ -36,6 +36,37 @@ function Register(){
                         <input type="text" placeholder="Digite o nome" />
                     </div>
 
+                    <div className="w-full h-[50px] bg-[red] flex justify-center items-center flex-row gap-[15px]">
+                        <label>Type:</label>
+                        <select>
+                            <option value='string'>String</option>
+                            <option value='integer'>Integer</option>
+                            <option value='boolean'>Boolean</option>
+                        </select>
+                    </div>
+
+                    <div className="w-full h-[50px] bg-[red] flex justify-center items-center flex-row gap-[15px]">
+                        <label>Required:</label>
+
+                        <input type="radio" id="true" name="required" value="true" />
+                        <label for="required">Sim</label>
+
+                        <input type="radio" id="false" name="required" value="true" />
+                        <label for="required">Não</label>
+                    </div>
+
+                    <div className="w-full h-[50px] bg-[red] flex justify-center items-center flex-row gap-[15px]">
+                        <label>Min:</label>
+                        <input type="text" placeholder="Digite o valor minimo" />
+
+                        <label>Max:</label>
+                        <input type="text" placeholder="Digite o valor maximo" />
+                    </div>
+
+                    <div className="w-full h-[50px] bg-[red] flex justify-center items-center flex-row gap-[15px]">
+                        <button>Limpar</button>
+                        <button>Cadastrar</button>
+                    </div>
 
                 </div>
 
