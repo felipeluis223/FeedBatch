@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Home from './templates/Home'
 import Login from './components/Login'
+import Register from './components/Register';
 
 function Teste(){
   return <p>Teste</p>
@@ -37,8 +38,9 @@ function App() {
         <Route path="template" element={
           isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
         }>
-          <Route path=""  element={<Teste />} />
-          <Route path="1"  element={<Teste1 />} />
+          <Route path=""  element={<Register />} />
+          <Route path="values"  element={<Teste1 />} />
+          <Route path="results"  element={<Teste1 />} />
         </Route>
 
       </Routes>
@@ -46,16 +48,4 @@ function App() {
   )
 }
 
-export default App
-
-
-
-
-//import feedbatch from "./services/feedbatch"
- /* useEffect(()=>{
-    feedbatch.get("/telas").then((res)=>{
-      console.log('resposta: ', res)
-    }).catch((err)=>{
-      console.log('erro: ', err)
-    })
-  }) */
+export default App;

@@ -1,8 +1,5 @@
-// Relizar a conexão na API da FeedBatch
-import axios from "axios"
+// Links - API
+const API_TELAS = "https://x8ki-letl-twmt.n7.xano.io/api:pMlqaj0c/telas";
+const API_VALORES = "https://x8ki-letl-twmt.n7.xano.io/api:pMlqaj0c/valores";
 
-const feedbatch = axios.create({
-	baseUrl: 'https://x8ki-letl-twmt.n7.xano.io/api:pMlqaj0c'
-})
-
-export default feedbatch;
+export default API_TELAS;
