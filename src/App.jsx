@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './templates/Home'
@@ -15,10 +15,11 @@ function Teste1(){
 function App() {
   const [ isAuthenticated, setIsAuthenticated ] = useState(false);
   const adminData = { username:'admin', password:'admin' };
-
+  
   const handleLogin = (username, password)=>{
-    if(username == adminData.username && password == username.password){
+    if(username == adminData.username && password == adminData.password){
       setIsAuthenticated(true);
+      return true
     }else{
       window.alert("Credenciais inválidas");
     }

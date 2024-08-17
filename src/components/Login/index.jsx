@@ -1,16 +1,27 @@
 import { useState } from 'react';
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from 'react-router-dom';
 
-function Login({handleLogin}){
+// Componente responsável pela interface de Login e autenticação do sistema. 
+function Login({onLogin}){
   const [ showPassword, setShowPassword ] = useState(false);
   const [ userdata, setUserData ] = useState({ username: '', password: '' });
+  
+  const navigate = useNavigate()
 
   const handleOnChangeLogin = (event, key)=>{
     setUserData({
       ...userdata, [key]:event.target.value
     })
+  }
+
+  const handleSubmit = ()=>{
+    const isAuthenticated = onLogin(userdata.username, userdata.password)
+    if(isAuthenticated){
+      navigate("/template");
+    }
   }
 
   return (
@@ -49,6 +60,7 @@ function Login({handleLogin}){
 
           <div className='w-[350px] h-[105px] mt-[20px] flex items-center flex-col gap-[10px]'>
             <button
+              onClick={handleSubmit}
               className='w-[120px] py-[8px] rounded-lg hover:bg-[#1ED760] hover:font-bold duration-150 hover:text-[#ffffff] bg-[#ffffff] '>
               Sign in
             </button>
