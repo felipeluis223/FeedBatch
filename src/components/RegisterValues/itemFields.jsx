@@ -28,7 +28,8 @@ export default function ItemFields({payload}){
                 key_id: payload.key,
                 value: input
             }).then((res)=>{
-                alert("Informação Cadastrada com sucesso!")
+                alert("Informação Cadastrada com sucesso!");
+                setInput('');
             }).catch((error)=>{
                 alert("Falha no cadastro. Tente novamente mais tarde.")
             })

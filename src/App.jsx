@@ -5,6 +5,7 @@ import Home from './templates/Home'
 import Login from './components/Login'
 import RegisterFields from './components/RegisterFields';
 import RegisterValues from './components/RegisterValues';
+import Result from './components/Results';
 
 function Teste1(){
   return <p>Teste1</p>
@@ -37,7 +38,7 @@ function App() {
         }>
           <Route path=""  element={<RegisterFields />} />
           <Route path="values"  element={<RegisterValues />} />
-          <Route path="results"  element={<Teste1 />} />
+          <Route path="results"  element={<Result />} />
         </Route>
 
       </Routes>

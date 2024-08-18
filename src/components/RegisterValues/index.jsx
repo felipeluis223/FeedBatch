@@ -23,7 +23,7 @@ function RegisterValues(){
     return (
         <section className="w-full]">
             <Title description="Adicionar valores aos Campos" />
-            <div className="w-full h-full mt-[15px] gap-[15px] flex flex-col justify-center items-center">
+            <div className="w-full h-[400px] mt-[15px] gap-[15px] flex flex-col justify-center items-center">
                 {dataAPI?.length != undefined && dataAPI != 0 ? 
                     dataAPI.map((payload, index)=>(
                         <ItemFields payload={payload} key={index}/>
