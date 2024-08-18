@@ -43,7 +43,7 @@ function Register(){
             <div className="w-full flex flex-row">
                 <div className="w-[40%] ml-[5%] h-full flex justify-center items-center flex-col bg-[#1f1f1f] py-[20px] rounded-md gap-[10px]">
                     <div className="w-full h-[50px] flex justify-center items-center flex-row gap-[15px] ">
-                        <label className="text-[#ffffff]">Key:</label>
+                        <label className="text-[#ffffff]">Titulo:</label>
                         <input 
                             type="text" 
                             value={data.key}
@@ -55,16 +55,16 @@ function Register(){
                     </div>
 
                     <div className="w-full h-[50px] flex justify-center items-center flex-row gap-[15px]">
-                        <label className="text-[#ffffff]">Type:</label>
+                        <label className="text-[#ffffff]">Tipo:</label>
                         <select 
                             onChange={(e)=>handleOnChangeRegister(e, 'type')}
                             value={data.type}
                             className="w-[300px] h-[30px] pl-[5px] outline-none bg-[#1f1f1f] text-[#1ED760] border-b-[1px] border-b-[#ffffff]"
                         >
-                            <option value='string'>String</option>
-                            <option value='integer'>Integer</option>
-                            <option value='float'>Float</option>
-                            <option value='boolean'>Boolean</option>
+                            <option value='string'>Texto</option>
+                            <option value='integer'>Inteiro</option>
+                            <option value='float'>Decimal</option>
+                            <option value='boolean'>Verdadeiro ou Falso</option>
                         </select>
                         <BsListUl  className="text-lg text-[#ffffff]" />
                     </div>
@@ -95,7 +95,7 @@ function Register(){
                     </div>
 
                     <div className="w-full h-[50px] flex justify-center items-center flex-row gap-[15px]">
-                        <label className="text-[#ffffff]">Required:</label>
+                        <label className="text-[#ffffff]">Obrigatório:</label>
 
                         <input type="radio" id="required-true" name="required" value="true" onChange={(e)=>handleOnChangeRegister(e,'required')} />
                         <label htmlFor="required-true" className="text-[#1ED760] text-sm">Sim</label>

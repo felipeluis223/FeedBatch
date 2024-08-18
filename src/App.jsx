@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Home from './templates/Home'
 import Login from './components/Login'
-import Register from './components/Register';
-
-function Teste(){
-  return <p>Teste</p>
-}
+import Register from './components/RegisterFields';
 
 function Teste1(){
   return <p>Teste1</p>
@@ -20,7 +16,7 @@ function App() {
   const handleLogin = (username, password)=>{
     if(username == adminData.username && password == adminData.password){
       setIsAuthenticated(true);
-      return true
+      return true;
     }else{
       window.alert("Credenciais inválidas");
     }
