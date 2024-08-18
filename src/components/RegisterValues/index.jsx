@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import API_TELAS from '../../services/feedbatch';
+import FEEDBATCH from '../../services/feedbatch';
 import Title from '../Title';
 import ItemFields from './itemFields';
 import axios from 'axios';
@@ -9,7 +9,7 @@ function RegisterValues(){
     const [ dataAPI, setDataAPI ] = useState({});
     
     const getScreens = ()=> {
-        axios.get(API_TELAS).then((res)=>{
+        axios.get(`${FEEDBATCH}/telas`).then((res)=>{
             setDataAPI(res?.data)            
         }).catch((error)=>{
             console.log("ERROR: ", error)

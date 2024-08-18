@@ -1,4 +1,10 @@
+import { useState } from "react";
+import FEEDBATCH from "../../services/feedbatch";
+import axios from 'axios';
+
 export default function ItemFields({payload}){
+    const [input, setInput] = useState('');
+
     const typeMask = ()=>{
         switch(payload.type){
             case "string":
@@ -15,8 +21,22 @@ export default function ItemFields({payload}){
                 return "date";
         }
     }
+    
+    const sendValueForAPI = ()=>{
+        if(input != ''){
+            axios.post(`${FEEDBATCH}/valores`, {
+                key_id: payload.key,
+                value: input
+            }).then((res)=>{
+                alert("Informação Cadastrada com sucesso!")
+            }).catch((error)=>{
+                alert("Falha no cadastro. Tente novamente mais tarde.")
+            })
+        }else{
+            alert("Por favor preencha o campo.")
+        }
+    }
 
-    console.log(payload)
 
     return (
         <div className="w-[920px] h-[50px] flex flex-row gap-[10px]">
@@ -25,14 +45,16 @@ export default function ItemFields({payload}){
             </div>
             <div className="w-[400px] h-full flex flex-row items-center">
                 <input 
-                    type={typeMask()} 
+                    type={typeMask()}
+                    required
+                    onChange={(e)=>setInput(e.target.value)}
                     placeholder="Preencher aqui..."
                     className="w-[400px] h-full outline-none px-[10px] bg-[#1f1f1f] border-b-[1px] border-b-[#ffffff] text-[#1ED760]" 
                 />
                 
             </div>
 
-            <button className="w-[200px] h-full bg-[#1f1f1f] text-[#1ED760] rounded-md hover:bg-[#1ED760] duration-150 hover:text-[#ffffff] font-bold">
+            <button onClick={sendValueForAPI} className="w-[200px] h-full bg-[#1f1f1f] text-[#1ED760] rounded-md hover:bg-[#1ED760] duration-150 hover:text-[#ffffff] font-bold">
                 Enviar
             </button>
         </div>

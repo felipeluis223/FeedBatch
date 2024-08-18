@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import API_TELAS from '../../services/feedbatch';
+import FEEDBATCH from '../../services/feedbatch';
 import axios from "axios"; 
 
 import { BsFillPersonPlusFill, BsListUl, BsSortDownAlt, BsSortUp  } from "react-icons/bs";
@@ -21,7 +21,7 @@ function RegisterFields(){
 
     const register = ()=>{
         if(data.key != ''){
-            axios.post(API_TELAS, data)
+            axios.post(`${FEEDBATCH}/telas`, data)
             .then((res) => {
                 alert("Informações cadastradas com sucesso!");
                 setData({
