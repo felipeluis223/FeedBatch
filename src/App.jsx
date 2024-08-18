@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Home from './templates/Home'
 import Login from './components/Login'
-import Register from './components/RegisterFields';
+import RegisterFields from './components/RegisterFields';
+import RegisterValues from './components/RegisterValues';
 
 function Teste1(){
   return <p>Teste1</p>
@@ -34,8 +35,8 @@ function App() {
         <Route path="template" element={
           isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
         }>
-          <Route path=""  element={<Register />} />
-          <Route path="values"  element={<Teste1 />} />
+          <Route path=""  element={<RegisterFields />} />
+          <Route path="values"  element={<RegisterValues />} />
           <Route path="results"  element={<Teste1 />} />
         </Route>
 

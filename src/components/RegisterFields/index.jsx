@@ -5,8 +5,9 @@ import axios from "axios";
 import { BsFillPersonPlusFill, BsListUl, BsSortDownAlt, BsSortUp  } from "react-icons/bs";
 
 import imgAdd from '../../assets/add.png';
+import Title from "../Title";
 
-function Register(){
+function RegisterFields(){
     const [data, setData] = useState({
         key:'',
         type:'string',
@@ -36,9 +37,7 @@ function Register(){
 
     return(
         <section className="w-full h-[500px]">
-            <div className="w-full h-[80px] flex justify-center items-center">
-                <h4 className="text-2xl font-bold text-[#1ED760]">Cadastrar Campos e seus Parâmetros</h4>
-            </div>
+            <Title description="Cadastrar Campos e seus Parâmetros" />
 
             <div className="w-full flex flex-row">
                 <div className="w-[40%] ml-[5%] h-full flex justify-center items-center flex-col bg-[#1f1f1f] py-[20px] rounded-md gap-[10px]">
@@ -106,10 +105,10 @@ function Register(){
 
 
                     <div className="w-full h-[50px] flex justify-center items-center flex-row gap-[15px]">
-                        <button className="w-[150px] h-[40px] bg-[#242424] rounded-md text-[#1ED760] hover:bg-[#1ED760] hover:text-[#ffffff]">Limpar</button>
+                        <button className="w-[150px] h-[40px] bg-[#242424] rounded-md duration-150 text-[#1ED760] hover:bg-[#1ED760] hover:text-[#ffffff]">Limpar</button>
                         <button 
                             onClick={register}
-                            className="w-[150px] h-[40px] bg-[#242424] rounded-md text-[#1ED760] hover:bg-[#1ED760] hover:text-[#ffffff]">
+                            className="w-[150px] h-[40px] bg-[#242424] rounded-md duration-150 text-[#1ED760] hover:bg-[#1ED760] hover:text-[#ffffff]">
                             Cadatrar
                         </button>
                     </div>
@@ -124,4 +123,4 @@ function Register(){
     )
 }
 
-export default Register;
+export default RegisterFields;
