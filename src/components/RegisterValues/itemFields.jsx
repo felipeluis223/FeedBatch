@@ -1,13 +1,12 @@
-import { BsFillPlusCircleFill } from "react-icons/bs";
-
-export default function ItemFields(){
+export default function ItemFields({payload}){
     const data = {
-        key: "CEP",
-        type: "integer",
-        required: true,
-        min:0, max:0
-
+        key: payload?.key,
+        type: payload?.type,
+        required: payload?.required,
+        min:payload?.min, 
+        max:payload?.max
     }
+
     const typeMask = ()=>{
         switch(data.type){
             case "string":
