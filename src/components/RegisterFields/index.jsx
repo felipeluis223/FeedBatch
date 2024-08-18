@@ -20,19 +20,24 @@ function RegisterFields(){
     }
 
     const register = ()=>{
-        axios.post(API_TELAS, data)
-        .then((res) => {
-            alert("Informações cadastradas com sucesso!");
-            setData({
-                key:'',
-                type:'string',
-                required: false,
-                min:0, max:0
-            }); 
-        })
-        .catch((err) => {
-            alert("Ops! Tivemos um problema. Tente novamente mais tarde");
-        });
+        if(data.key != ''){
+            axios.post(API_TELAS, data)
+            .then((res) => {
+                alert("Informações cadastradas com sucesso!");
+                setData({
+                    key:'',
+                    type:'string',
+                    required: false,
+                    min:0, max:0
+                }); 
+            })
+            .catch((err) => {
+                alert("Ops! Tivemos um problema. Tente novamente mais tarde");
+            });
+        }else{
+            alert('Por favor preencha todos os campos...')
+        }
+        
     }
 
     return(
@@ -61,6 +66,7 @@ function RegisterFields(){
                             className="w-[300px] h-[30px] pl-[5px] outline-none bg-[#1f1f1f] text-[#1ED760] border-b-[1px] border-b-[#ffffff]"
                         >
                             <option value='string'>Texto</option>
+                            <option value='date'>Data</option>
                             <option value='integer'>Inteiro</option>
                             <option value='float'>Decimal</option>
                             <option value='boolean'>Verdadeiro ou Falso</option>
