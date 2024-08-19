@@ -28,8 +28,8 @@ function RegisterValues(){
                     dataAPI.map((payload, index)=>(
                         <ItemFields payload={payload} key={index}/>
                     )) : 
-                    <section className="w-full h-[400px] flex justify-center items-center">
-                        <img src={img} className="h-full" />
+                    <section className="w-full  h-[400px] flex justify-center items-center">
+                        <img src={img} className="md:h-full h-[200px]" />
                         <h5 className="text-2xl text-[#ffffff]"><strong>Ops!</strong> <br /> Não há campos a preencher...</h5>
                     </section>}
                 

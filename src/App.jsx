@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './templates/Home'
@@ -7,17 +7,15 @@ import RegisterFields from './components/RegisterFields';
 import RegisterValues from './components/RegisterValues';
 import Result from './components/Results';
 
-function Teste1(){
-  return <p>Teste1</p>
-}
-
 function App() {
-  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(localStorage.getItem("authenticated") || false);
   const adminData = { username:'admin', password:'admin' };
-  
+
   const handleLogin = (username, password)=>{
+  
     if(username == adminData.username && password == adminData.password){
       setIsAuthenticated(true);
+      localStorage.setItem('authenticated', true)
       return true;
     }else{
       window.alert("Credenciais inválidas");
@@ -26,6 +24,7 @@ function App() {
 
   const handleLogout = ()=>{
     setIsAuthenticated(false)
+    localStorage.removeItem('authenticated')
   }
 
   return (
@@ -33,7 +32,7 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Login onLogin={handleLogin} />} />        
-        <Route path="template" element={
+        <Route path="home" element={
           isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/" />
         }>
           <Route path=""  element={<RegisterFields />} />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaLock } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -17,12 +17,16 @@ function Login({onLogin}){
       ...userdata, [key]:event.target.value
     })
   }
-
+  useEffect(()=>{
+    if(localStorage.getItem("authenticated") != null){
+      navigate("/home");
+    }
+  }, [])
   // Relizando a verificação de acesso:
   const handleSubmit = ()=>{
     const isAuthenticated = onLogin(userdata.username, userdata.password)
     if(isAuthenticated){
-      navigate("/template");
+      navigate("/home");
     }
   }
 

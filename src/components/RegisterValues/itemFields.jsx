@@ -48,6 +48,7 @@ export default function ItemFields({payload}){
                 <input 
                     type={typeMask()}
                     required
+                    value={input}
                     onChange={(e)=>setInput(e.target.value)}
                     placeholder="Preencher aqui..."
                     className="w-[400px] h-full outline-none px-[10px] bg-[#1f1f1f] border-b-[1px] border-b-[#ffffff] text-[#1ED760]" 
