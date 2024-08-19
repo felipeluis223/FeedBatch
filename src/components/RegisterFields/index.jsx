@@ -45,7 +45,7 @@ function RegisterFields(){
             <Title description="Cadastrar Campos e seus Parâmetros" />
 
             <div className="w-full flex flex-row">
-                <div className="w-[40%] ml-[5%] h-full flex justify-center items-center flex-col bg-[#1f1f1f] py-[20px] rounded-md gap-[10px]">
+                <div className="w-full md:w-[40%] md:ml-[5%] h-full flex justify-center items-center flex-col bg-[#1f1f1f] py-[20px] rounded-md gap-[10px]">
                     <div className="w-full h-[50px] flex justify-center items-center flex-row gap-[15px] ">
                         <label className="text-[#ffffff]">Titulo:</label>
                         <input 
@@ -121,7 +121,7 @@ function RegisterFields(){
 
                 </div>
 
-                <div className="w-[50%] h-full flex justify-center">
+                <div className="md:flex hidden md:w-[50%] h-full justify-center ">
                     <img src={imgAdd} alt="login" className='h-[400px]' />
                 </div>
             </div>

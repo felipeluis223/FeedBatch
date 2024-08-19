@@ -40,11 +40,11 @@ export default function ItemFields({payload}){
 
 
     return (
-        <div className="w-[920px] h-[50px] flex flex-row gap-[10px]">
-            <div className="w-[200px] h-full bg-[#1f1f1f] flex pl-[15px] items-center rounded-md">
+        <div className="md:w-[920px] md:h-[50px] h-[80px] flex md:flex-row flex-col md:gap-[10px] md:mb-[0px] mb-[15px]">
+            <div className="md:w-[200px] h-full bg-[#1f1f1f] flex pl-[15px] items-center rounded-md">
                 <h4 className="text-[#ffffff] font-bold">{payload.key.toUpperCase()}</h4>
             </div>
-            <div className="w-[400px] h-full flex flex-row items-center">
+            <div className="md:w-[400px] h-full flex flex-row items-center">
                 <input 
                     type={typeMask()}
                     required
@@ -55,7 +55,7 @@ export default function ItemFields({payload}){
                 
             </div>
 
-            <button onClick={sendValueForAPI} className="w-[200px] h-full bg-[#1f1f1f] text-[#1ED760] rounded-md hover:bg-[#1ED760] duration-150 hover:text-[#ffffff] font-bold">
+            <button onClick={sendValueForAPI} className="md:w-[200px] h-full bg-[#1f1f1f] text-[#1ED760] rounded-md hover:bg-[#1ED760] duration-150 hover:text-[#ffffff] font-bold">
                 Enviar
             </button>
         </div>

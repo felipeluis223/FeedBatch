@@ -28,8 +28,7 @@ function Login({onLogin}){
 
   return (
     <section className="w-full h-screen bg-[#242424] flex flex-col-reverse md:flex-row items-center justify-center">
-      <div className="w-[50%] h-screen">
-        
+      <div className="md:w-[50%] w-[95%] h-screen">
         <div className='w-full h-[250px] flex justify-center items-center'>
           <h2 className="text-3xl text-center text-[#ffffff]">
             Welcome to the <br/> <span className="text-[#1ED760]"> FeedBatch Challenge </span>
@@ -37,12 +36,12 @@ function Login({onLogin}){
         </div>
 
         <div className='w-full h-[250px] flex justify-center flex-col items-center'>
-          <div className="w-[450px] h-[80px] flex flex-col justify-center">
+          <div className="md:w-[450px] w-[95%] h-[80px] flex flex-col justify-center md:items-start items-center">
             <span className="text-[#1ED760] font-bold text-xl">Sign in</span>
             <span className="text-[#1ED760] text-sm">Please enter your details</span>
           </div>
 
-          <div className='w-[450px] h-[40px] flex items-center gap-[15px]'>
+          <div className='md:w-[450px] w-[95%] h-[40px] flex items-center gap-[15px]'>
             <span className='text-[#ffffff]'>Username:</span>
             <input 
               type="text" 
@@ -51,7 +50,7 @@ function Login({onLogin}){
             />
           </div>
 
-          <div className='w-[450px] h-[40px] flex items-center gap-[15px]'>
+          <div className='md:w-[450px] w-[95%] h-[40px] flex items-center gap-[15px]'>
             <span className='text-[#ffffff]'>Password:</span>
             <input 
               type={showPassword ? 'text' : 'password'} 
@@ -78,7 +77,8 @@ function Login({onLogin}){
         </div>
 
       </div>
-      <div className="w-[50%] h-screen">
+
+      <div className="w-[50%] h-screen hidden md:block">
         <img src={imgLogin} alt="login" className='h-screen' />
       </div>
     </section>
