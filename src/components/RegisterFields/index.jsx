@@ -19,6 +19,7 @@ function RegisterFields(){
         setData({ ...data, [key]: event.target.value });
     }
 
+    // Função responsável por verificar e cadastrar os campos. Após o cadastro dos dados resetamos o input:
     const register = ()=>{
         if(data.key != ''){
             axios.post(`${FEEDBATCH}/telas`, data)

@@ -8,6 +8,8 @@ import img from '../../assets/load.png'
 function RegisterValues(){
     const [ dataAPI, setDataAPI ] = useState({});
     
+
+    //Obter os campos cadastrados:
     const getScreens = ()=> {
         axios.get(`${FEEDBATCH}/telas`).then((res)=>{
             setDataAPI(res?.data)            

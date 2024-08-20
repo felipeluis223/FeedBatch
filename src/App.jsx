@@ -9,19 +9,23 @@ import Result from './components/Results';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated ] = useState(localStorage.getItem("authenticated") || false);
+
+  // Usuário e senha para o acesso do sistema:
   const adminData = { username:'admin', password:'admin' };
 
+
+  // Login do sistema - Realizando a verificação dos dados e armazenando no localStorage:
   const handleLogin = (username, password)=>{
-  
     if(username == adminData.username && password == adminData.password){
       setIsAuthenticated(true);
       localStorage.setItem('authenticated', true)
       return true;
     }else{
-      window.alert("Credenciais inválidas");
+      alert("Credenciais inválidas");
     }
   }
 
+  // Logout do sistema
   const handleLogout = ()=>{
     setIsAuthenticated(false)
     localStorage.removeItem('authenticated')

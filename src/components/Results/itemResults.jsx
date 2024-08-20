@@ -9,23 +9,27 @@ export default function ItemResult({payload, refreshData}){
     
     const navigate = useNavigate();
 
+    // Função responsável por excluir os valores dos campos:
     const deleteData = ()=>{
         setTimeout(()=>{
             axios.delete(`${FEEDBATCH}/valores/${payload.id}`).then(()=>{refreshData()}).catch();
         }, 1500);
     }
 
+
+    // Função responsável por editar os valores dos campos:
     const editData = ()=>{
         const newData = prompt(`Digite o novo - ${payload.key_id}`)
-        
-        setTimeout(()=>{
-            axios.put(`${FEEDBATCH}/valores/${payload.id}`, {
-                key_id: payload.key_id,
-                value: newData
-            }).then(()=>{refreshData()}).catch();
-        }, 1500);
+        console.log('x: ',newData)
+        if((newData != "") && (newData != null)){
+            setTimeout(()=>{
+                axios.put(`${FEEDBATCH}/valores/${payload.id}`, {
+                    key_id: payload.key_id,
+                    value: newData
+                }).then(()=>{refreshData()}).catch();
+            }, 1500);
+        }else{ alert("Valor Inválido")}
     }
-
 
 
     return (
@@ -34,7 +38,7 @@ export default function ItemResult({payload, refreshData}){
                 <span className="text-[#1ED760]">GERADO: </span><span className="text-[#ffffff]"> {formatDate}</span>
             </div>
 
-            <div className="w-full md:w-[40%] h-full flex flex-row justify-center items-center gap-[5px]">
+            <div className="w-full md:w-[40%] h-full flex flex-row justify-start items-center gap-[5px]">
                 <span className="text-[#1ED760]">{payload?.key_id}: </span> <span className="text-[#ffffff]"> {payload?.value}</span>
             </div>
             

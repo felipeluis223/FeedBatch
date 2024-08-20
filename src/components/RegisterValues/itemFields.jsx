@@ -22,6 +22,8 @@ export default function ItemFields({payload}){
         }
     }
     
+
+    // Enviando os valores para API:
     const sendValueForAPI = ()=>{
         if(input != ''){
             axios.post(`${FEEDBATCH}/valores`, {
