@@ -38,7 +38,10 @@ Este projeto utiliza as seguintes tecnologias:
 
 ## Uso
 1. **Executar o Projeto:**
-   npm run dev
+   ```
+    npm install
+    npm run dev
+   ```
 
 2. Acesso Padrão do sistema - Login:
    Usuário: admin
