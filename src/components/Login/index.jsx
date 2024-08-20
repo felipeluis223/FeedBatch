@@ -16,12 +16,15 @@ function Login({onLogin}){
     setUserData({
       ...userdata, [key]:event.target.value
     })
-  }
+  };
+
+
   useEffect(()=>{
     if(localStorage.getItem("authenticated") != null){
       navigate("/home");
     }
-  }, [])
+  }, []);
+
   // Relizando a verificação de acesso:
   const handleSubmit = ()=>{
     const isAuthenticated = onLogin(userdata.username, userdata.password)

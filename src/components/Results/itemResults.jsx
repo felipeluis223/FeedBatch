@@ -3,16 +3,27 @@ import axios from 'axios';
 import FEEDBATCH from '../../services/feedbatch';
 import { useNavigate } from 'react-router-dom'
 
-export default function ItemResult({payload}){
-
+export default function ItemResult({payload, refreshData}){
     const date = new Date(payload?.created_at);
     const formatDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
     
     const navigate = useNavigate();
 
     const deleteData = ()=>{
-        axios.delete(`${FEEDBATCH}/valores/${payload.id}`).then().catch();
+        setTimeout(()=>{
+            axios.delete(`${FEEDBATCH}/valores/${payload.id}`).then(()=>{refreshData()}).catch();
+        }, 1500);
+    }
+
+    const editData = ()=>{
+        const newData = prompt(`Digite o novo - ${payload.key_id}`)
         
+        setTimeout(()=>{
+            axios.put(`${FEEDBATCH}/valores/${payload.id}`, {
+                key_id: payload.key_id,
+                value: newData
+            }).then(()=>{refreshData()}).catch();
+        }, 1500);
     }
 
 
@@ -28,7 +39,7 @@ export default function ItemResult({payload}){
             </div>
             
             <div  className="w-full md:w-[40%] mt-[20px] md:mt-[0px] h-full flex flex-row gap-[40px] justify-center items-center md:border-none border-b-[1px] pb-[15px] md:pb-[0px]">
-                <button className="w-[90px] h-[40px] bg-[#ff9600] flex justify-center items-center rounded-md gap-[5px]">
+                <button onClick={editData} className="w-[90px] h-[40px] bg-[#ff9600] flex justify-center items-center rounded-md gap-[5px]">
                     <FaPenToSquare /> Editar
                 </button>
 
@@ -36,8 +47,6 @@ export default function ItemResult({payload}){
                     <FaRegTrashCan /> Excluir
                 </button>                
             </div>
-
-
         </section>
     );
 }
