@@ -1,6 +1,6 @@
 # FeedBatch
 
-Bem-vindo ao repositório **FeedBatch**! Este projeto é uma aplicação web desenvolvida para gerenciar e manipular dados de valores e interfaces. A branch `main` contém funcionalidades específicas relacionadas à interface.
+Bem-vindo ao repositório **FeedBatch**! Este projeto é uma aplicação web desenvolvida para gerenciar e manipular dados de valores e interfaces. A branch `main` contém funcionalidades específicas relacionadas à interface, também aplicamos responsividade ao sistema.
 
 ## Índice
 
